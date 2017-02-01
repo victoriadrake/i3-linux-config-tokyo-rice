@@ -1,0 +1,45 @@
+// Place your settings in this file to overwrite the default settings
+// Full descriptions under File > Preferences > User Settings
+{
+    "editor.fontFamily": "'mononoki', 'Roboto Mono Light', 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 14,
+    "editor.fontLigatures": true,
+    "editor.cursorBlinking": "phase",
+    "editor.quickSuggestionsDelay": 20,
+    "editor.snippetSuggestions": "bottom",
+    "editor.wrappingColumn": 100,
+    "editor.renderIndentGuides": false,
+
+    "window.zoomLevel": 0,
+    "window.showFullPath": true,
+    
+    "terminal.external.linuxExec": "urxvt",
+
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 3000,
+
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintPath": "/home/vicky/anaconda/bin/pylint",
+    "python.linting.lintOnSave": true,
+    "python.linting.pylintArgs": ["--extension-pkg-whitelist=numpy"],
+
+    "spellchecker.language": "en_US",
+    "spellchecker.ignoreWordsList": [
+    ],
+    "spellchecker.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ],
+    "spellchecker.ignoreRegExp": [
+        "/\\\\(.*\\\\.(jpg|jpeg|png|md|gif|svg|pdf|PDF|SVG|JPG|JPEG|PNG|MD|GIF)\\\\)/g",
+        "/((http|https|ftp|git)\\\\S*)/g",
+        "/^(```\\\\s*)(\\\\w+)?(\\\\s*[\\\\w\\\\W]+?\\\\n*)(```\\\\s*)\\\\n*$/gm"
+    ],
+    "spellchecker.ignoreFileExtensions": [
+        ".env",
+        ".json",
+        ".py"
+    ],
+    "spellchecker.checkInterval": 3000
+}

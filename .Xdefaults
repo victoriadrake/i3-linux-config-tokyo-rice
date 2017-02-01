@@ -1,0 +1,50 @@
+!! Appearance
+URxvt.termName:   rxvt-unicode
+URxvt.scrollBar:  false
+Xft.dpi:          96
+Xft.antialias:    true
+Xft.rgba:      	  rgb
+Xft.hinting:      true
+Xft.hintstyle:    hintslight
+
+!! Transparency settings
+URxvt.transparent:     true
+URxvt.shading:         15
+! URxvt.tintColor:     #000
+! URxvt.inheritPixmap: true
+
+!! Fonts
+URxvt.font:        xft:mononoki:pixelsize=13:antialias=true,xft:monospace
+URxvt.boldFont:    xft:mononoki:pixelsize=13:weight=bold:antialias=true,xft:monospace
+URxvt.letterSpace: -1
+
+!! Larger history limit
+URxvt.saveLines:  1000000
+
+!! Colors: blackgum from https://github.com/randalltuxarc/URxvt-colorscheme/blob/master/blackgum
+   URxvt.foreground: #ECEDEE
+   URxvt.background: #111111
+! black
+   URxvt.color0:     #2E1F1F
+   URxvt.color8:     #422D2D
+! red
+   URxvt.color1:     #AA0E50
+   URxvt.color9:     #BE0E50
+! green
+   URxvt.color2:     #1DCC9F
+   URxvt.color10:    #1FD9A9
+! yellow
+   URxvt.color3:     #27C282
+   URxvt.color11:    #2CDB93
+! blue
+   URxvt.color4:     #7182A8
+   URxvt.color12:    #8194BF
+! magenta
+   URxvt.color5:     #A673A6
+   URxvt.color13:    #7F5AA1
+! cyan
+   URxvt.color6:     #6DA3A1
+   URxvt.color14:    #669997
+! white
+   URxvt.color7:     #B7BBBD
+   URxvt.color15:    #D9D9D9

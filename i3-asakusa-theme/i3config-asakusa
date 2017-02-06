@@ -1,0 +1,290 @@
+# i3 config file 
+# Asakusa theme by @vickylaixy
+# reference at: http://i3wm.org/docs/userguide.html 
+
+# choose your magic key
+set $mod Mod1
+
+
+# APPEARANCE SETTINGS
+
+# ASAKUSA THEME
+
+# set color variables
+# optional theme colorscheme
+set $grey                #334455
+set $magenta             #ddbbcc
+set $blue                #557788
+set $cyan                #22ddcc
+set $black               #334455
+set $white               #aacccc
+set $yellow              #dd9933
+set $red                 #aa5566
+set $green               #779988
+
+# theme colors
+set $bg-color 	         #334455
+set $inactive-bg-color   #334455
+set $text-color          #aacccc
+set $inactive-text-color #557788
+set $urgent-bg-color     #ee3355
+
+# set window colors
+# class                 border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $white               $bg-color
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $bg-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $bg-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $bg-color
+client.background       $bg-color
+
+# pixel borders remove title bars completely because of compton shadows
+for_window [class="^.*"] border pixel 5
+
+# set desktop background
+exec --no-startup-id feh --bg-fill ~/asakusa.png
+
+# shadows and transitions with compton
+exec --no-startup-id compton --config ~/.config/compton.conf -b
+
+# i3-gaps
+# smart_borders on      # borders only if more than one container in the workspace
+# smart_gaps on         # gaps only if more than one container in the workspace
+gaps inner 15           # global gap size
+
+
+# ON STARTUP
+
+# start apps automatically
+exec --no-startup-id /usr/bin/nm-applet
+exec --no-startup-id dropbox start
+
+# enable numlock
+exec --no-startup-id numlockx on
+
+# set initial brightness
+exec xrandr --output eDP-1 --brightness 0.8
+
+
+# KEY BINDINGS
+
+# brightness adjustment (pre-defined levels)
+bindsym $mod+Shift+F6 exec xrandr --output eDP-1 --brightness 1
+bindsym $mod+F6       exec xrandr --output eDP-1 --brightness 0.8
+bindsym $mod+F5       exec xrandr --output eDP-1 --brightness 0.5
+bindsym $mod+F7       exec xrandr --output eDP-1 --brightness 0.1
+
+# volume control (increment)
+bindsym $mod+F12 exec amixer -q set Master 2dB+ unmute
+bindsym $mod+F11 exec amixer -q set Master 2dB- unmute
+bindsym $mod+F10 exec amixer -q set Master toggle
+
+# start a terminal
+bindsym $mod+Return exec urxvt
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+# bindsym $mod+d exec dmenu_run
+
+# start j4-dmenu-desktop (only displays applications shipping a desktop 
+# file. It is a wrapper around dmenu)
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
+
+
+# MANAGE WINDOWS
+
+# change window focus
+bindsym $mod+j            focus left
+bindsym $mod+k            focus down
+bindsym $mod+i            focus up
+bindsym $mod+l            focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left         focus left
+bindsym $mod+Down         focus down
+bindsym $mod+Up           focus up
+bindsym $mod+Right        focus right
+
+# move focused window
+bindsym $mod+Shift+j      move left
+bindsym $mod+Shift+k      move down
+bindsym $mod+Shift+i      move up
+bindsym $mod+Shift+l      move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left   move left
+bindsym $mod+Shift+Down   move down
+bindsym $mod+Shift+Up     move up
+bindsym $mod+Shift+Right  move right
+
+# split in horizontal orientationud 
+bindsym $mod+h            split h
+
+# split in vertical orientation
+bindsym $mod+v            split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f            fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s            layout stacking
+bindsym $mod+w            layout tabbed
+bindsym $mod+e            layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space  floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space        focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a            focus parent
+
+# focus the child container
+#bindsym $mod+d           focus child
+
+
+# SCREENSHOTS WITH MAIM
+
+# take screenshot with Print key (requires maim)
+# with Shift: take screenshot of active window
+bindsym                 Print exec --no-startup-id maim                               ~/data/pictures/screenshots/$(date +%F-%T).png && notify-send "png screenshot taken"
+bindsym --release Shift+Print exec --no-startup-id maim -i $(xdotool getactivewindow) ~/data/pictures/screenshots/$(date +%F-%T).png && notify-send "png screenshot of window taken"
+
+
+# CONTROL i3
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3 and end X session?' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+# MANAGE WORKSPACES
+
+# name the workspaces (icons require fontawesome)
+set $tag1  "1:  www"
+set $tag2  "2:  code"
+set $tag3  "3:  notes"
+set $tag4  "4:  email"
+set $tag5  "5:  files"
+set $tag6  "6: six"
+set $tag7  "7: seven"
+set $tag8  "8: eight"
+set $tag9  "9: nine"
+set $tag10 "10: ten"
+
+# switch to workspace
+bindsym $mod+1 workspace $tag1
+bindsym $mod+2 workspace $tag2
+bindsym $mod+3 workspace $tag3
+bindsym $mod+4 workspace $tag4
+bindsym $mod+5 workspace $tag5
+bindsym $mod+6 workspace $tag6
+bindsym $mod+7 workspace $tag7
+bindsym $mod+8 workspace $tag8
+bindsym $mod+9 workspace $tag9
+bindsym $mod+0 workspace $tag10
+
+# next/previous workspace
+# bindsym $mod+Tab       workspace back_and_forth
+bindsym $mod+Tab         workspace next
+bindsym $mod+Shift+Tab   workspace prev
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $tag1
+bindsym $mod+Shift+2 move container to workspace $tag2
+bindsym $mod+Shift+3 move container to workspace $tag3
+bindsym $mod+Shift+4 move container to workspace $tag4
+bindsym $mod+Shift+5 move container to workspace $tag5
+bindsym $mod+Shift+6 move container to workspace $tag6
+bindsym $mod+Shift+7 move container to workspace $tag7
+bindsym $mod+Shift+8 move container to workspace $tag8
+bindsym $mod+Shift+9 move container to workspace $tag9
+bindsym $mod+Shift+0 move container to workspace $tag10
+
+# automatically start programs in specific workspaces on login
+exec --no-startup-id i3-msg "workspace $tag1; exec /usr/bin/firefox"
+exec --no-startup-id i3-msg "workspace $tag2; exec urxvt"
+exec --no-startup-id i3-msg "workspace $tag3; exec /usr/bin/code"
+exec --no-startup-id i3-msg "workspace $tag4; exec /usr/bin/icedove"
+
+# assign some applications to certain workspaces
+# assign [class="Firefox"] $tag1
+# assign [class="Visual Studio Code"] $tag3
+
+# disable borders for some applications
+# for_window [class="^Icedove$"] border none
+
+# set specific apps to show as floating windows
+for_window [class="^Viewnior$"] floating enable
+for_window [class="URxvt"] floating enable
+
+
+# MOVE AND RESIZE WINDOWS
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym i resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+# START AND CONFIGURE i3bar
+
+bar {
+        # start using custom config file (full path)
+        status_command       i3status -c ~/.config/i3status/config/i3status.conf
+        tray_padding         3
+        font pango:Roboto    9
+
+	colors {
+		# whole color settings
+		background   $black
+		statusline   $white
+		separator    $grey
+
+		# type             border      backgr.     font
+		focused_workspace  $grey       $white      $black
+		active_workspace   $grey       $white      $black
+		inactive_workspace $grey       $black      $white
+		urgent_workspace   $valencia   $valencia   $black
+	}
+	# i3bar position
+	position top
+        
+        # height of the bar in pixels
+        height 25
+}
+
+
+# LOCK, SUSPEND KEYBINDS
+
+bindsym Control+$mod+l exec --no-startup-id i3lock -i ~/lockimage.png && xrandr --output eDP-1 --brightness 0.3
+bindsym Control+$mod+s exec --no-startup-id i3lock -i ~/lockimage.png && xrandr --output eDP-1 --brightness 0.3 && systemctl suspend

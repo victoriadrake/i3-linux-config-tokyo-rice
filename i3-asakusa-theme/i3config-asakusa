@@ -74,9 +74,9 @@ bindsym $mod+F5       exec xrandr --output eDP-1 --brightness 0.5
 bindsym $mod+F7       exec xrandr --output eDP-1 --brightness 0.1
 
 # volume control (increment)
-bindsym $mod+F12 exec amixer -q set Master 2dB+ unmute
-bindsym $mod+F11 exec amixer -q set Master 2dB- unmute
-bindsym $mod+F10 exec amixer -q set Master toggle
+bindsym $mod+F12 exec amixer -q sset Master 3%+
+bindsym $mod+F11 exec amixer -q sset Master 3%-
+bindsym $mod+F10 exec amixer -q sset Master toggle
 
 # start a terminal
 bindsym $mod+Return exec urxvt

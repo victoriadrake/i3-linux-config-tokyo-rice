@@ -10,7 +10,7 @@ Xft.hintstyle:    hintslight
 !! Transparency settings
 URxvt.transparent:     true
 URxvt.shading:         15
-!! URxvt.tintColor:     #000
+URxvt.depth:           32
 !! URxvt.inheritPixmap: true
 
 !! Fonts
@@ -21,12 +21,12 @@ URxvt.letterSpace: -1
 !! Larger history limit
 URxvt.saveLines:  1000000
 
-!! Colors
+!! Colors:
    URxvt.foreground: #aacccc
    URxvt.background: #334455
 !! black
    URxvt.color0:     #2e1f1f
-   URxvt.color8:     #422d2d
+   URxvt.color8:     #bb8899
 !! red
    URxvt.color1:     #aa0e50
    URxvt.color9:     #bb8899

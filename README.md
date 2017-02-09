@@ -1,8 +1,8 @@
-# i3/Linux Config Files
+# i3/Linux Config Files (Tokyo Rice)
 
-My config files for various aspects of my set up with i3-gaps on Linux.
+My config files for various aspects of my (first rice!) set up with i3-gaps on Linux.
 
-Now all riced up (with two themes, even)! The wallpapers are photos I took myself in Tokyo. Feel free to use them only on your own desktops, if you wish. :)
+Includes two subtly different themes. The wallpapers are photos I took myself in Tokyo. Feel free to use them only on your own desktops, if you wish. :)
 
 You can check out my blog post on the set up [here](https://vickylai.com/blog/linux-debian-i3/). You can ask me about it on Twitter: [@vickylaixy](https://twitter.com/vickylaixy).
 

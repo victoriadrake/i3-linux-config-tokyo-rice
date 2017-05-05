@@ -4,7 +4,7 @@ My config files for various aspects of my (first rice!) set up with i3-gaps on L
 
 Includes two subtly different themes. The wallpapers are photos I took myself in Tokyo. Feel free to use them only on your own desktops, if you wish. :)
 
-You can check out my blog post on the set up [here](https://vickylai.com/blog/linux-debian-i3/). You can ask me about it on Twitter: [@vickylaixy](https://twitter.com/vickylaixy).
+You can check out my blog post on the set up [here](https://vickylai.io/verbose/blog/2017-02-06-linux-debian-i3/). You can ask me about it on Twitter: [@vickylaiio](https://twitter.com/vickylaiio).
 
 ***
 
